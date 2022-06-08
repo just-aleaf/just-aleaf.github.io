@@ -1,4 +1,3 @@
-http://example.com/2022/05/24/%E8%B6%B3%E7%90%83/
 http://example.com/2022/05/23/sql-lib/
 http://example.com/%E6%9C%89%E6%84%9F/index.html
 http://example.com/music/index.html

