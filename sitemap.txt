@@ -1,0 +1,10 @@
+http://just-aleaf.github.io/tags/index.html
+http://just-aleaf.github.io/links/index.html
+http://just-aleaf.github.io/repository/index.html
+http://just-aleaf.github.io/categories/index.html
+http://just-aleaf.github.io/about/index.html
+http://just-aleaf.github.io/books/index.html
+http://just-aleaf.github.io/404.html
+http://just-aleaf.github.io/2022/08/01/hello-world-1/
+http://just-aleaf.github.io/2022/08/01/hello-world/
+http://just-aleaf.github.io/
