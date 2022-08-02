@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://just-aleaf.github.io/links/index.html</loc>
+    <loc>http://just-aleaf.github.io/2022/08/02/%E5%87%BA%E9%A2%98%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9B/</loc>
     
     <lastmod>2022-08-02</lastmod>
     
@@ -22,7 +22,16 @@
   <url>
     <loc>http://just-aleaf.github.io/Feeling/index.html</loc>
     
-    <lastmod>2022-08-01</lastmod>
+    <lastmod>2022-08-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://just-aleaf.github.io/links/index.html</loc>
+    
+    <lastmod>2022-08-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
