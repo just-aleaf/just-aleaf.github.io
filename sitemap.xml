@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://just-aleaf.github.io/2022/08/05/2022DASCTF-Apr-X-FATE-%E9%98%B2%E7%96%AB%E6%8C%91%E6%88%98%E8%B5%9B/</loc>
+    
+    <lastmod>2022-08-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://just-aleaf.github.io/2022/08/02/%E5%87%BA%E9%A2%98%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9B/</loc>
     
     <lastmod>2022-08-05</lastmod>
@@ -103,7 +112,7 @@
 
   <url>
     <loc>http://just-aleaf.github.io/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -111,7 +120,7 @@
   
   <url>
     <loc>http://just-aleaf.github.io/tags/CTF/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -120,7 +129,7 @@
   
   <url>
     <loc>http://just-aleaf.github.io/categories/CTF/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

@@ -6,7 +6,7 @@
   <link href="http://just-aleaf.github.io/atom.xml" rel="self"/>
   
   <link href="http://just-aleaf.github.io/"/>
-  <updated>2022-08-05T04:10:03.727Z</updated>
+  <updated>2022-08-05T11:56:25.892Z</updated>
   <id>http://just-aleaf.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2022DASCTF Apr X FATE 防疫挑战赛</title>
+    <link href="http://just-aleaf.github.io/2022/08/05/2022DASCTF-Apr-X-FATE-%E9%98%B2%E7%96%AB%E6%8C%91%E6%88%98%E8%B5%9B/"/>
+    <id>http://just-aleaf.github.io/2022/08/05/2022DASCTF-Apr-X-FATE-%E9%98%B2%E7%96%AB%E6%8C%91%E6%88%98%E8%B5%9B/</id>
+    <published>2022-08-05T11:55:58.000Z</published>
+    <updated>2022-08-05T11:56:25.892Z</updated>
+    
+    
+    
+    
+    <category term="CTF" scheme="http://just-aleaf.github.io/categories/CTF/"/>
+    
+    
+    <category term="CTF" scheme="http://just-aleaf.github.io/tags/CTF/"/>
+    
+  </entry>
   
   <entry>
     <title>出题人挑战赛</title>
