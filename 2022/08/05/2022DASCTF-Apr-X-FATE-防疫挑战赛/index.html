@@ -30,8 +30,13 @@
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/07/62efafad9c5fa.jpg">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/07/62efb0c260c39.jpg">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/07/62efb0f8735be.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f0663cf9b.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f072eb5c7.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f086a2a33.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f1393bfb6.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f05fbd756.png">
 <meta property="article:published_time" content="2022-08-05T11:55:58.000Z">
-<meta property="article:modified_time" content="2022-08-07T13:36:09.784Z">
+<meta property="article:modified_time" content="2022-08-08T11:25:51.910Z">
 <meta property="article:author" content="叶子">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
@@ -328,7 +333,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MISC"><span class="toc-number">1.</span> <span class="toc-text">MISC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SimpleFlow"><span class="toc-number">1.1.</span> <span class="toc-text">SimpleFlow</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MISC"><span class="toc-number">1.</span> <span class="toc-text">MISC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SimpleFlow"><span class="toc-number">1.1.</span> <span class="toc-text">SimpleFlow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%86%9F%E6%82%89%E7%9A%84%E7%8C%AB"><span class="toc-number">1.2.</span> <span class="toc-text">熟悉的猫</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -372,7 +377,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/05/2022DASCTF-Apr-X-FATE-%E9%98%B2%E7%96%AB%E6%8C%91%E6%88%98%E8%B5%9B/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 144(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 310(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -395,6 +400,28 @@
 <p>解密发现压缩包密码</p>
 <p><img src="http://wp.xiaohuang.vip/p/9/2022/08/07/62efb0c260c39.jpg" alt="QQ截图20220807203154.jpg"></p>
 <p><img src="http://wp.xiaohuang.vip/p/9/2022/08/07/62efb0f8735be.jpg" alt="QQ截图20220807203235.jpg"></p>
+<h2 id="熟悉的猫"><a href="#熟悉的猫" class="headerlink" title="熟悉的猫"></a>熟悉的猫</h2><p>下载附件发现是一个zip文件名的文件修改后缀位zip</p>
+<p>内含一个kdbx和zip文件(加密)</p>
+<p>kdbx文件是windows的密码文件需要用到keepass进行打开</p>
+<p>发现加密</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f0663cf9b.jpg" alt="QQ截图20220808191241.jpg"></p>
+<p>hashcat暴力破解</p>
+<p>先使用keepass2john获取hash值</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f072eb5c7.jpg" alt="QQ截图20220808191405.jpg"></p>
+<p>这里生成的txt中要打开将前面的len5:去掉（把那个不属于hash值）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashcat -m 13400 keepass.txt -a 0 password.txt --force//这里的password.txt是使用crunch生成的五位数密码本</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f086a2a33.jpg" alt="QQ截图20220808191325.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashcat -m 13400 keepass.txt -a 0 password.txt --force --show //显示结果</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f1393bfb6.jpg" alt="QQ截图20220808191340.jpg"></p>
+<p>获得对应密码</p>
+<p>解开kbdx文件发现zip文件的密码解密hint中发现k值同时发现存在隐写</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/08/62f0f05fbd756.png" alt="tupper.png"></p>
 
       
     </div>
