@@ -18,16 +18,24 @@
   
   
   <title>2022DASCTF Apr X FATE 防疫挑战赛 | 叶子的博客</title>
-  <meta property="og:type" content="article">
+  <meta name="description" content="MISCSimpleFlow下载附件发现是一个流量包 尝试binwalk看看有没有什么隐写内容  发现一个flag.txt和一个加密的压缩包  也没有别的有用信息尝试从流量包中查找有没有关于flag或者密码的其他内容 进入wireshark查找flag.txt相关内容 发现有四条发现是base64加密过的蚁剑流量 一一进行解密（这里要注意蚁剑流量解码后s需要去除传入参数的前两个字符）  解密发现压">
+<meta property="og:type" content="article">
 <meta property="og:title" content="2022DASCTF Apr X FATE 防疫挑战赛">
 <meta property="og:url" content="http://just-aleaf.github.io/2022/08/05/2022DASCTF-Apr-X-FATE-%E9%98%B2%E7%96%AB%E6%8C%91%E6%88%98%E8%B5%9B/index.html">
 <meta property="og:site_name" content="leaf">
+<meta property="og:description" content="MISCSimpleFlow下载附件发现是一个流量包 尝试binwalk看看有没有什么隐写内容  发现一个flag.txt和一个加密的压缩包  也没有别的有用信息尝试从流量包中查找有没有关于flag或者密码的其他内容 进入wireshark查找flag.txt相关内容 发现有四条发现是base64加密过的蚁剑流量 一一进行解密（这里要注意蚁剑流量解码后s需要去除传入参数的前两个字符）  解密发现压">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/07/62ef7ce2a8726.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/07/62ef7ce38ad00.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/07/62efafad9c5fa.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/07/62efb0c260c39.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/07/62efb0f8735be.jpg">
 <meta property="article:published_time" content="2022-08-05T11:55:58.000Z">
-<meta property="article:modified_time" content="2022-08-05T11:56:25.892Z">
+<meta property="article:modified_time" content="2022-08-07T13:36:09.784Z">
 <meta property="article:author" content="叶子">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wp.xiaohuang.vip/p/9/2022/08/07/62ef7ce2a8726.jpg">
   <!-- Canonical links -->
   <link rel="canonical" href="http://just-aleaf.github.io/2022/08/05/2022DASCTF-Apr-X-FATE-%E9%98%B2%E7%96%AB%E6%8C%91%E6%88%98%E8%B5%9B/index.html">
   
@@ -320,7 +328,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MISC"><span class="toc-number">1.</span> <span class="toc-text">MISC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SimpleFlow"><span class="toc-number">1.1.</span> <span class="toc-text">SimpleFlow</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -364,7 +372,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/05/2022DASCTF-Apr-X-FATE-%E9%98%B2%E7%96%AB%E6%8C%91%E6%88%98%E8%B5%9B/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 0(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 144(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -374,7 +382,20 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        
+        <h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><h2 id="SimpleFlow"><a href="#SimpleFlow" class="headerlink" title="SimpleFlow"></a>SimpleFlow</h2><p>下载附件发现是一个流量包</p>
+<p>尝试binwalk看看有没有什么隐写内容</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/07/62ef7ce2a8726.jpg" alt="QQ截图20220807165010.jpg"></p>
+<p>发现一个flag.txt和一个加密的压缩包</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/07/62ef7ce38ad00.jpg" alt="QQ截图20220807165023.jpg"></p>
+<p>也没有别的有用信息尝试从流量包中查找有没有关于flag或者密码的其他内容</p>
+<p>进入wireshark查找flag.txt相关内容</p>
+<p>发现有四条发现是base64加密过的蚁剑流量</p>
+<p>一一进行解密（这里要注意蚁剑流量解码后s需要去除传入参数的前两个字符）</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/07/62efafad9c5fa.jpg" alt="QQ截图20220807202606.jpg"></p>
+<p>解密发现压缩包密码</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/07/62efb0c260c39.jpg" alt="QQ截图20220807203154.jpg"></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/07/62efb0f8735be.jpg" alt="QQ截图20220807203235.jpg"></p>
+
       
     </div>
     <div class="article-footer">
