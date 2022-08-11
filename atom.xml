@@ -6,7 +6,7 @@
   <link href="http://just-aleaf.github.io/atom.xml" rel="self"/>
   
   <link href="http://just-aleaf.github.io/"/>
-  <updated>2022-08-09T15:15:57.187Z</updated>
+  <updated>2022-08-10T15:54:24.893Z</updated>
   <id>http://just-aleaf.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MISC</title>
+    <link href="http://just-aleaf.github.io/2022/08/10/MISC/"/>
+    <id>http://just-aleaf.github.io/2022/08/10/MISC/</id>
+    <published>2022-08-10T15:08:55.000Z</published>
+    <updated>2022-08-10T15:54:24.893Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><h2 id="1-bpg文件读取"><a href="#1-bpg文件读取" class="headerlink" title="(1)bpg文件读取"></a>(1)bpg文件读取</h2><p>下载附件给了一个bpg后缀文件</p><p><img src="http://wp.xiaohuang.vip/p/9/2022/08/10/62f3caa661129.jpg" alt="QQ截图20220810231100.jpg"></p><p><a href="https://bellard.org/bpg/">BPG Image format (bellard.org)</a></p><p>这里我们使用bpg工具</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bpgview.exe E:\ctf\misc3.bpg</span><br></pre></td></tr></table></figure><p><img src="http://wp.xiaohuang.vip/p/9/2022/08/10/62f3cb0ab478d.jpg" alt="QQ截图20220810231256.jpg"></p><h2 id="2-文件头识别"><a href="#2-文件头识别" class="headerlink" title="(2)文件头识别"></a>(2)文件头识别</h2><p>下载附件发现6个txt文件hex打开查看</p><p>第一个发现是png文件头将后缀更改获得照片这里猜测这里就是更具文件头修改后缀</p><p>那就需要了解一下各个文件的文件头</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">A.JPEG</span><br><span class="line"></span><br><span class="line">文件头:FF D8 FF</span><br><span class="line"></span><br><span class="line">文件尾:FF D9</span><br><span class="line"></span><br><span class="line">B.PNG</span><br><span class="line"></span><br><span class="line">文件头:89 50 4E 47 0D 0A 1A 0A</span><br><span class="line"></span><br><span class="line">文件尾:AE 42 60 82</span><br><span class="line"></span><br><span class="line">C.GIF</span><br><span class="line"></span><br><span class="line">文件头:47 49 46 38 39(37) 61</span><br><span class="line"></span><br><span class="line">文件尾:00 3b</span><br><span class="line"></span><br><span class="line">D.BMP</span><br><span class="line"></span><br><span class="line">文件头:42 4D</span><br><span class="line"></span><br><span class="line">E.TIFF(tif)</span><br><span class="line"></span><br><span class="line">文件头：49 49 2A 00</span><br></pre></td></tr></table></figure><p>然后对应文件头修改文件后缀即可获得flag</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;入门&quot;&gt;&lt;a href=&quot;#入门&quot; class=&quot;headerlink&quot; title=&quot;入门&quot;&gt;&lt;/a&gt;入门&lt;/h1&gt;&lt;h2 id=&quot;1-bpg文件读取&quot;&gt;&lt;a href=&quot;#1-bpg文件读取&quot; class=&quot;headerlink&quot; title=&quot;(1)bpg文</summary>
+      
+    
+    
+    
+    <category term="CTF" scheme="http://just-aleaf.github.io/categories/CTF/"/>
+    
+    
+    <category term="CTF" scheme="http://just-aleaf.github.io/tags/CTF/"/>
+    
+  </entry>
   
   <entry>
     <title>出题方法</title>
