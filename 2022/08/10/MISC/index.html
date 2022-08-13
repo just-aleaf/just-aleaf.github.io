@@ -27,8 +27,11 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/10/62f3caa661129.jpg">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/10/62f3cb0ab478d.jpg">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bb9ea426.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bb98d1d0.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bbb54fd5.png">
 <meta property="article:published_time" content="2022-08-10T15:08:55.000Z">
-<meta property="article:modified_time" content="2022-08-10T15:54:24.893Z">
+<meta property="article:modified_time" content="2022-08-12T16:51:19.870Z">
 <meta property="article:author" content="叶子">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
@@ -325,7 +328,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-bpg%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">1.1.</span> <span class="toc-text">(1)bpg文件读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%A4%B4%E8%AF%86%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">(2)文件头识别</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-bpg%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">1.1.</span> <span class="toc-text">(1)bpg文件读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%A4%B4%E8%AF%86%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">(2)文件头识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-LINUX%E7%9A%84DD%E5%91%BD%E4%BB%A4%E8%AF%BB%E5%8F%96"><span class="toc-number">1.3.</span> <span class="toc-text">(3)LINUX的DD命令读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-EXIF%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96"><span class="toc-number">1.4.</span> <span class="toc-text">(4)EXIF文件信息读取</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -369,7 +372,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/10/MISC/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 193(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 343(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -394,7 +397,17 @@
 
 
 <p>然后对应文件头修改文件后缀即可获得flag</p>
+<h2 id="3-LINUX的DD命令读取"><a href="#3-LINUX的DD命令读取" class="headerlink" title="(3)LINUX的DD命令读取"></a>(3)LINUX的DD命令读取</h2><p>下载附件后发现又是一张jpg文件</p>
+<p>binwalk隐写直接走但是发现这里确实有隐写，但是无法提取出来</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bb9ea426.png" alt="QQ截图20220813001101.png"></p>
+<p>通过看大佬文章才知道这里可用dd命令提取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dd if=misc14.jpg of=misc.jpeg skip=2103 bs=1</span><br><span class="line">if=文件名: 后面跟随输入文件名（读取的文件）</span><br><span class="line">of=文件名: 跟随输出的文件名</span><br><span class="line">skip=blocks: 从输入文件开头跳过blocks个块后再开始复制</span><br><span class="line">bs=bytes: 同时设置读入/输出的块大小为bytes个字节</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+
+
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bb98d1d0.png" alt="QQ截图20220813001109.png"></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bbb54fd5.png" alt="QQ截图20220813001117.png"></p>
+<h2 id="4-EXIF文件信息读取"><a href="#4-EXIF文件信息读取" class="headerlink" title="(4)EXIF文件信息读取"></a>(4)EXIF文件信息读取</h2>
       
     </div>
     <div class="article-footer">
