@@ -27,8 +27,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/17/62fbc6c485236.png">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/17/62fbc7186d45f.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/17/62fc4556a579e.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/17/62fc46d491e8e.png">
 <meta property="article:published_time" content="2022-08-16T16:14:25.000Z">
-<meta property="article:modified_time" content="2022-08-16T16:57:09.093Z">
+<meta property="article:modified_time" content="2022-08-17T01:40:00.687Z">
 <meta property="article:author" content="叶子">
 <meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
@@ -325,7 +327,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-challenge1"><span class="toc-number">1.</span> <span class="toc-text">(1)challenge1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#challenge2"><span class="toc-number">2.</span> <span class="toc-text">challenge2</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-challenge1"><span class="toc-number">1.</span> <span class="toc-text">(1)challenge1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-challenge2"><span class="toc-number">2.</span> <span class="toc-text">(2)challenge2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-challenge3"><span class="toc-number">3.</span> <span class="toc-text">(3)challenge3</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -369,7 +371,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/17/PHP-Code-Challenge/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 152(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 240(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -387,7 +389,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">import binascii</span><br><span class="line">def strrev(string):</span><br><span class="line">	return string[::-1]</span><br><span class="line">str = &quot;1wMDEyY2U2YTY0M2NgMTEyZDQyMjAzNWczYjZgMWI4NTt3YWxmY= &quot;;</span><br><span class="line">str2 = binascii.a2b_hex(strrev(binascii.b2a_hex(base64.b64decode(str))));</span><br><span class="line">print(str2)</span><br></pre></td></tr></table></figure>
 
 <p><img src="http://wp.xiaohuang.vip/p/9/2022/08/17/62fbc7186d45f.png" alt="QQ截图20220817003421.png"></p>
-<h2 id="challenge2"><a href="#challenge2" class="headerlink" title="challenge2"></a>challenge2</h2>
+<h2 id="2-challenge2"><a href="#2-challenge2" class="headerlink" title="(2)challenge2"></a>(2)challenge2</h2><p>下载靶场访问环境</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/17/62fc4556a579e.png" alt="QQ截图20220817092452.png"></p>
+<p>通过代码我们可以得出我们需要get赋予time一个在5184000—7776000之间的数字，通过sleep对应时间即可出现flag</p>
+<p>这里我们考虑传入一个位于范围内的时间之后sleep时间过久所以这里考虑进行科学计数法绕过</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/08/17/62fc46d491e8e.png" alt="QQ截图20220817093920.png"></p>
+<h2 id="3-challenge3"><a href="#3-challenge3" class="headerlink" title="(3)challenge3"></a>(3)challenge3</h2>
       
     </div>
     <div class="article-footer">
