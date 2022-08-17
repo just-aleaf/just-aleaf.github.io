@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://just-aleaf.github.io/2022/08/17/PHP-Code-Challenge/</loc>
+    
+    <lastmod>2022-08-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://just-aleaf.github.io/Feeling/index.html</loc>
     
     <lastmod>2022-08-15</lastmod>
@@ -130,7 +139,7 @@
 
   <url>
     <loc>http://just-aleaf.github.io/</loc>
-    <lastmod>2022-08-16</lastmod>
+    <lastmod>2022-08-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -138,7 +147,14 @@
   
   <url>
     <loc>http://just-aleaf.github.io/tags/CTF/</loc>
-    <lastmod>2022-08-16</lastmod>
+    <lastmod>2022-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://just-aleaf.github.io/tags/PHP/</loc>
+    <lastmod>2022-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -147,7 +163,14 @@
   
   <url>
     <loc>http://just-aleaf.github.io/categories/CTF/</loc>
-    <lastmod>2022-08-16</lastmod>
+    <lastmod>2022-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://just-aleaf.github.io/categories/PHP/</loc>
+    <lastmod>2022-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
