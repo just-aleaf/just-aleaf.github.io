@@ -6,7 +6,7 @@
   <link href="http://just-aleaf.github.io/atom.xml" rel="self"/>
   
   <link href="http://just-aleaf.github.io/"/>
-  <updated>2022-08-22T07:44:31.275Z</updated>
+  <updated>2022-08-25T15:48:58.933Z</updated>
   <id>http://just-aleaf.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>变量覆盖</title>
+    <link href="http://just-aleaf.github.io/2022/08/25/%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96/"/>
+    <id>http://just-aleaf.github.io/2022/08/25/%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96/</id>
+    <published>2022-08-25T15:43:32.000Z</published>
+    <updated>2022-08-25T15:48:58.933Z</updated>
+    
+    
+    
+    
+    <category term="PHP审计" scheme="http://just-aleaf.github.io/categories/PHP%E5%AE%A1%E8%AE%A1/"/>
+    
+    
+    <category term="PHP审计" scheme="http://just-aleaf.github.io/tags/PHP%E5%AE%A1%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP_Code_Challenge</title>

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://just-aleaf.github.io/2022/08/25/%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96/</loc>
+    
+    <lastmod>2022-08-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://just-aleaf.github.io/2022/08/17/PHP-Code-Challenge/</loc>
     
     <lastmod>2022-08-22</lastmod>
@@ -159,6 +168,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://just-aleaf.github.io/tags/PHP%E5%AE%A1%E8%AE%A1/</loc>
+    <lastmod>2022-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -170,6 +186,13 @@
   
   <url>
     <loc>http://just-aleaf.github.io/categories/PHP/</loc>
+    <lastmod>2022-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://just-aleaf.github.io/categories/PHP%E5%AE%A1%E8%AE%A1/</loc>
     <lastmod>2022-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
