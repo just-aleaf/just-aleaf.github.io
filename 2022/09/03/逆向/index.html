@@ -17,20 +17,34 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>有感 | 叶子的博客</title>
-  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172心有山水不造作，静而不争远是非，内心丰盈即人生巅峰心想事成的秘诀,就是只想能成的的事一声炎帝，满是故事没有人会踏雾而来，喜欢的风景">
-<meta property="og:type" content="website">
-<meta property="og:title" content="有感">
-<meta property="og:url" content="http://just-aleaf.github.io/Feeling/index.html">
+  <title>逆向破解学习 | 叶子的博客</title>
+  <meta name="description" content="最近学习小甲鱼的解密篇希望有一天自己也可以破解软件使用这里就进行一下学习记录 （1）MESSAGEBOX修改弹窗标题 这里我们想要让他显示我们想要显示的 首先我们od打开exe f8运行知道弹出对话框 找到之后我们发现call指令猜测里面就是类似messagebox的指令 打下断点  f2重新载入—–》f9到达断点处—–》f7进入call指令  这里我们发现push指令推入了参数然后call对应地">
+<meta property="og:type" content="article">
+<meta property="og:title" content="逆向破解学习">
+<meta property="og:url" content="http://just-aleaf.github.io/2022/09/03/%E9%80%86%E5%90%91/index.html">
 <meta property="og:site_name" content="leaf">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172心有山水不造作，静而不争远是非，内心丰盈即人生巅峰心想事成的秘诀,就是只想能成的的事一声炎帝，满是故事没有人会踏雾而来，喜欢的风景">
+<meta property="og:description" content="最近学习小甲鱼的解密篇希望有一天自己也可以破解软件使用这里就进行一下学习记录 （1）MESSAGEBOX修改弹窗标题 这里我们想要让他显示我们想要显示的 首先我们od打开exe f8运行知道弹出对话框 找到之后我们发现call指令猜测里面就是类似messagebox的指令 打下断点  f2重新载入—–》f9到达断点处—–》f7进入call指令  这里我们发现push指令推入了参数然后call对应地">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-01T17:07:58.000Z">
-<meta property="article:modified_time" content="2022-08-15T00:51:25.564Z">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/63134af22b8ba.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/63134ad1707d4.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/63134b445fb98.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/63134be82caa2.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/631350098678f.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/63134ffacb0c8.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/6313534301a8d.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/631353ae27e18.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/631353ae27e18.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/631353ae27e18.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/631353ae27e18.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/631359c0c69e8.png">
+<meta property="article:published_time" content="2022-09-03T12:17:06.000Z">
+<meta property="article:modified_time" content="2022-09-03T13:59:25.333Z">
 <meta property="article:author" content="叶子">
+<meta property="article:tag" content="逆向">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wp.xiaohuang.vip/p/9/2022/09/03/63134af22b8ba.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://just-aleaf.github.io/Feeling/index.html">
+  <link rel="canonical" href="http://just-aleaf.github.io/2022/09/03/%E9%80%86%E5%90%91/index.html">
   
     <link rel="alternate" href="/atom.xml" title="leaf" type="application/atom+xml">
   
@@ -317,16 +331,25 @@
 
   
   
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89MESSAGEBOX%E4%BF%AE%E6%94%B9%E5%BC%B9%E7%AA%97%E6%A0%87%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">（1）MESSAGEBOX修改弹窗标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882%EF%BC%89TraceMe%E7%A0%B4%E8%A7%A3%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2"><span class="toc-number">2.</span> <span class="toc-text">（2）TraceMe破解登录界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%883%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">（3）</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-逆向" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      有感
+      逆向破解学习
     </h1>
   
 
@@ -334,33 +357,74 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/Feeling/index.html" class="article-date">
-	  <time datetime="2022-08-01T17:07:58.000Z" itemprop="datePublished">2022-08-02</time>
+	<a href="/2022/09/03/%E9%80%86%E5%90%91/" class="article-date">
+	  <time datetime="2022-09-03T12:17:06.000Z" itemprop="datePublished">2022-09-03</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E9%80%86%E5%90%91/">逆向</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E9%80%86%E5%90%91/" rel="tag">逆向</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Feeling/index.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/03/%E9%80%86%E5%90%91/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 616(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 461(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">心有山水不造作，静而不争远是非，内心丰盈即人生巅峰</span><br><span class="line"></span><br><span class="line">心想事成的秘诀,就是只想能成的的事</span><br><span class="line"></span><br><span class="line">一声炎帝，满是故事</span><br><span class="line"></span><br><span class="line">没有人会踏雾而来，喜欢的风景要自己努力去看</span><br><span class="line"></span><br><span class="line">脚下生风过剑急，白云出岫看梅西。雄鹰射落蓝天傲，百炼成钢命不移</span><br><span class="line"></span><br><span class="line">鬓微霜又何妨，三十四载仍称王</span><br><span class="line"></span><br><span class="line">等海贼王完结的那一天，我们第一集弹幕见吧</span><br><span class="line"></span><br><span class="line">关于顶上，皆是遗憾</span><br><span class="line"></span><br><span class="line">原来这世界上没有任何东西能胜过利益(8月5日)自此红蓝无梅西</span><br><span class="line"></span><br><span class="line">去年的今天，国王为城堡能留下的只有泪水</span><br><span class="line"></span><br><span class="line">当枷锁落地的那一刻我们都以为赢了</span><br><span class="line"></span><br><span class="line">艾草纷飞，斯人未归</span><br><span class="line"></span><br><span class="line">只要想起一生中后悔的事，梅花便落满了南山</span><br><span class="line"></span><br><span class="line">操纵比赛就是犯罪(风华正盛正想拿成绩的年纪，却被逼迫拱手送出冠军)</span><br><span class="line"></span><br><span class="line">那家伙要是很幸福，会挂着海贼旗一个人出海吗</span><br><span class="line"></span><br><span class="line">永远是那个不服输的少年</span><br><span class="line"></span><br><span class="line">Inmessionante</span><br><span class="line"></span><br><span class="line">太阳也不是天天出现的，但它一直都在</span><br><span class="line"></span><br><span class="line">分享欲是靠回应来延续的，热情也是</span><br><span class="line"></span><br><span class="line">花自向阳开，人终朝前走</span><br><span class="line"></span><br><span class="line">咽的下委屈才能撑的起格局</span><br><span class="line"></span><br><span class="line">你以为这就是结局，其实也可以是新的开始</span><br><span class="line"></span><br><span class="line">累了想父母，倦了想前程(回家的路上睡着了,梦里全是妈妈烧的菜)</span><br><span class="line"></span><br><span class="line">光而不耀，与光同尘</span><br><span class="line"></span><br><span class="line">永远不要基于短暂的情绪而做出永久性的决定</span><br><span class="line"></span><br><span class="line">人从悲伤中落落大方走出来就是艺术家</span><br><span class="line"></span><br><span class="line">河流从不催促过河的人</span><br><span class="line"></span><br><span class="line">那就出你下次哭，是因为太幸福</span><br><span class="line"></span><br><span class="line">你仅是你，万人非你</span><br><span class="line"></span><br><span class="line">草木生欢喜，山水解忧愁</span><br><span class="line"></span><br><span class="line">疲时知休，郁时知通，燥时知止</span><br><span class="line"></span><br><span class="line">先讲对方想听的，在讲对方听得进的，然后讲你该讲的，最后讲你想讲的</span><br><span class="line"></span><br><span class="line">20岁的我还没有爱情，无妨你还有80年的时光去追求爱情</span><br><span class="line"></span><br><span class="line">糖水爷爷:红豆汤,绿豆汤,银耳汤,米酒，给两块钱随便喝</span><br><span class="line">人性最大的恶:恨你有，笑有你，嫌你穷，怕你富</span><br><span class="line"></span><br><span class="line">一直以为蓝白间条纹象征着忧郁与遗憾，其实它是历经千帆后的风轻云淡</span><br><span class="line"></span><br><span class="line">人若无名，便可专心练剑</span><br></pre></td></tr></table></figure>
+        <p>最近学习小甲鱼的解密篇希望有一天自己也可以破解软件使用这里就进行一下学习记录</p>
+<h2 id="（1）MESSAGEBOX修改弹窗标题"><a href="#（1）MESSAGEBOX修改弹窗标题" class="headerlink" title="（1）MESSAGEBOX修改弹窗标题"></a>（1）MESSAGEBOX修改弹窗标题</h2><p> 这里我们想要让他显示我们想要显示的</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/63134af22b8ba.png" alt="QQ截图20220903202408.png">首先我们od打开exe<img src="http://wp.xiaohuang.vip/p/9/2022/09/03/63134ad1707d4.png" alt="QQ截图20220903203813.png"></p>
+<p>f8运行知道弹出对话框</p>
+<p>找到之后我们发现call指令猜测里面就是类似messagebox的指令</p>
+<p>打下断点</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/63134b445fb98.png" alt="QQ截图20220903204029.png"></p>
+<p>f2重新载入—–》f9到达断点处—–》f7进入call指令</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/63134be82caa2.png" alt="QQ截图20220903204310.png"></p>
+<p>这里我们发现push指令推入了参数然后call对应地址</p>
+<p>我们这里可以发现对应的地址我们在数据窗口中进行地址搜索修改即可<img src="http://wp.xiaohuang.vip/p/9/2022/09/03/631350098678f.png" alt="QQ截图20220903205719.png"></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/63134ffacb0c8.png" alt="QQ截图20220903205749.png"></p>
+<h2 id="（2）TraceMe破解登录界面"><a href="#（2）TraceMe破解登录界面" class="headerlink" title="（2）TraceMe破解登录界面"></a>（2）TraceMe破解登录界面</h2><p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/6313534301a8d.png" alt="QQ截图20220903210915.png"></p>
+<p>这里是我们输入之后进行校验而校验之前会需要从文本框中读取字符床</p>
+<p>函数GetDlgItemTextA、GetDlgItemTextW、GetWindowTextA、GetWindowTextW可以从编辑框中取字符串</p>
+<p>我们尝试搜索这几个函数</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/631353ae27e18.png" alt="屏幕截图 2022-09-03 205845.png"></p>
+<p>找到之后下断点这里就是获取文本框字符串的地方</p>
+<p>然后我们输入内容继续向下运行</p>
+<p>发下显示我们输入内容的地方</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/631353ae27e18.png" alt="屏幕截图 2022-09-03 205845.png"></p>
+<p>我们发现这里push了三个edx为用户名，ebx为字符数，eax为密码</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/631353ae27e18.png" alt="屏幕截图 2022-09-03 205845.png"></p>
+<p>然后下一句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call  00401340</span><br></pre></td></tr></table></figure>
 
+<p>应该是进行校验的函数</p>
+<p>我们可以看到下面进行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test eax，eax//测试寄存器是否为空（为0的时候Z标志位回置0）</span><br></pre></td></tr></table></figure>
 
-
-
+<p>汇编中会把函数的返回结果都统一存储在eax中（当超出寄存器的容量是会存储返回值的地址）</p>
+<p>这里我们输入错误返回值不为0会满足jz的跳转要求进行跳转（我们这里先跳转运行发现返回错误）</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/631353ae27e18.png" alt="屏幕截图 2022-09-03 205845.png"></p>
+<p>所以我们这里修改Z的值让其不进行跳转</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/03/631359c0c69e8.png" alt="QQ截图20220903214145.png"></p>
+<h2 id="（3）"><a href="#（3）" class="headerlink" title="（3）"></a>（3）</h2>
       
     </div>
     <div class="article-footer">
@@ -369,7 +433,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://just-aleaf.github.io/Feeling/index.html" title="有感" target="_blank" rel="external">http://just-aleaf.github.io/Feeling/index.html</a>
+      <a href="http://just-aleaf.github.io/2022/09/03/%E9%80%86%E5%90%91/" title="逆向破解学习" target="_blank" rel="external">http://just-aleaf.github.io/2022/09/03/逆向/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -412,6 +476,24 @@
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/08/25/%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96/" title="PHP变量覆盖"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
   
   
   <!-- Button trigger modal -->
@@ -523,6 +605,10 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+
+   
 
 
 
