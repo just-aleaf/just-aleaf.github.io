@@ -18,20 +18,30 @@
   
   
   <title>MISC | 叶子的博客</title>
-  <meta name="description" content="入门(1)bpg文件读取下载附件给了一个bpg后缀文件  BPG Image format (bellard.org) 这里我们使用bpg工具 1bpgview.exe E:\ctf\misc3.bpg   (2)文件头识别下载附件发现6个txt文件hex打开查看 第一个发现是png文件头将后缀更改获得照片这里猜测这里就是更具文件头修改后缀 那就需要了解一下各个文件的文件头 12345678910">
+  <meta name="description" content="入门通过ctfshow平台挑选选了一些代表性的misc入门知识 (1)bpg文件读取下载附件给了一个bpg后缀文件  BPG Image format (bellard.org) 这里我们使用bpg工具 1bpgview.exe E:\ctf\misc3.bpg   (2)文件头识别下载附件发现6个txt文件hex打开查看 第一个发现是png文件头将后缀更改获得照片这里猜测这里就是更具文件头修改后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MISC">
 <meta property="og:url" content="http://just-aleaf.github.io/2022/08/10/MISC/index.html">
 <meta property="og:site_name" content="leaf">
-<meta property="og:description" content="入门(1)bpg文件读取下载附件给了一个bpg后缀文件  BPG Image format (bellard.org) 这里我们使用bpg工具 1bpgview.exe E:\ctf\misc3.bpg   (2)文件头识别下载附件发现6个txt文件hex打开查看 第一个发现是png文件头将后缀更改获得照片这里猜测这里就是更具文件头修改后缀 那就需要了解一下各个文件的文件头 12345678910">
+<meta property="og:description" content="入门通过ctfshow平台挑选选了一些代表性的misc入门知识 (1)bpg文件读取下载附件给了一个bpg后缀文件  BPG Image format (bellard.org) 这里我们使用bpg工具 1bpgview.exe E:\ctf\misc3.bpg   (2)文件头识别下载附件发现6个txt文件hex打开查看 第一个发现是png文件头将后缀更改获得照片这里猜测这里就是更具文件头修改后">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/10/62f3caa661129.jpg">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/10/62f3cb0ab478d.jpg">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bb9ea426.png">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bb98d1d0.png">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bbb54fd5.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/05/63160ce93685f.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/04/6314c51139204.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/04/6314c9cd536c1.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/04/6314ca0683599.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/05/631611d90b035.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/05/63161205317d2.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/05/63161697d9d5e.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/05/6316177d588a4.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/05/6316177d588a4.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/05/63161a9ccd40f.png">
 <meta property="article:published_time" content="2022-08-10T15:08:55.000Z">
-<meta property="article:modified_time" content="2022-08-12T16:51:19.870Z">
+<meta property="article:modified_time" content="2022-09-05T15:50:00.877Z">
 <meta property="article:author" content="叶子">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
@@ -328,7 +338,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-bpg%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">1.1.</span> <span class="toc-text">(1)bpg文件读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%A4%B4%E8%AF%86%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">(2)文件头识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-LINUX%E7%9A%84DD%E5%91%BD%E4%BB%A4%E8%AF%BB%E5%8F%96"><span class="toc-number">1.3.</span> <span class="toc-text">(3)LINUX的DD命令读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-EXIF%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96"><span class="toc-number">1.4.</span> <span class="toc-text">(4)EXIF文件信息读取</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-bpg%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">1.1.</span> <span class="toc-text">(1)bpg文件读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%A4%B4%E8%AF%86%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">(2)文件头识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-LINUX%E7%9A%84DD%E5%91%BD%E4%BB%A4%E8%AF%BB%E5%8F%96"><span class="toc-number">1.3.</span> <span class="toc-text">(3)LINUX的DD命令读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-EXIF%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96"><span class="toc-number">1.4.</span> <span class="toc-text">(4)EXIF文件信息读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-zsteg"><span class="toc-number">1.5.</span> <span class="toc-text">(5)zsteg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-binwalk-foremost"><span class="toc-number">1.6.</span> <span class="toc-text">(6)binwalk+foremost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-IDAT%E5%9D%97%E9%9A%90%E5%86%99"><span class="toc-number">1.7.</span> <span class="toc-text">(7)IDAT块隐写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-MagicEXIF%E5%85%83%E6%95%B0%E6%8D%AE%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">1.8.</span> <span class="toc-text">(8)MagicEXIF元数据编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%97%B6%E9%97%B4%E6%88%B3%E8%BD%AC%E6%8D%A2%E8%8E%B7%E5%8F%96"><span class="toc-number">1.9.</span> <span class="toc-text">(9)时间戳转换获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E4%B8%80%E4%B8%AA%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E9%A2%98"><span class="toc-number">1.10.</span> <span class="toc-text">(10)一个有意思的题</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -372,17 +382,18 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/10/MISC/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 343(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 913(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><h2 id="1-bpg文件读取"><a href="#1-bpg文件读取" class="headerlink" title="(1)bpg文件读取"></a>(1)bpg文件读取</h2><p>下载附件给了一个bpg后缀文件</p>
+        <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><p>通过ctfshow平台挑选选了一些代表性的misc入门知识</p>
+<h2 id="1-bpg文件读取"><a href="#1-bpg文件读取" class="headerlink" title="(1)bpg文件读取"></a>(1)bpg文件读取</h2><p>下载附件给了一个bpg后缀文件</p>
 <p><img src="http://wp.xiaohuang.vip/p/9/2022/08/10/62f3caa661129.jpg" alt="QQ截图20220810231100.jpg"></p>
 <p><a target="_blank" rel="noopener" href="https://bellard.org/bpg/">BPG Image format (bellard.org)</a></p>
 <p>这里我们使用bpg工具</p>
@@ -407,7 +418,52 @@
 
 <p><img src="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bb98d1d0.png" alt="QQ截图20220813001109.png"></p>
 <p><img src="http://wp.xiaohuang.vip/p/9/2022/08/13/62f67bbb54fd5.png" alt="QQ截图20220813001117.png"></p>
-<h2 id="4-EXIF文件信息读取"><a href="#4-EXIF文件信息读取" class="headerlink" title="(4)EXIF文件信息读取"></a>(4)EXIF文件信息读取</h2>
+<h2 id="4-EXIF文件信息读取"><a href="#4-EXIF文件信息读取" class="headerlink" title="(4)EXIF文件信息读取"></a>(4)EXIF文件信息读取</h2><p>有时候flag可能藏在图片文件的信息中当我们右键查看属性的时候通畅获取不到图片的全部信息</p>
+<p>这个时候我们就要借助在线网站获取exif信息</p>
+<p><a target="_blank" rel="noopener" href="https://exif.tuchong.com/">EXIF信息查看器 (tuchong.com)</a></p>
+<p>或者使用kali中的exiftool</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/05/63160ce93685f.png" alt="QQ截图20220905225102.png"></p>
+<h2 id="5-zsteg"><a href="#5-zsteg" class="headerlink" title="(5)zsteg"></a>(5)zsteg</h2><p>zsteg可以检测PNG和BMP图片中隐写的数据</p>
+<p>zsteg安装(kali)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">（1）换源</span><br><span class="line"></span><br><span class="line">gem sources --remove https://rubygems.org/  //删除现有源</span><br><span class="line">gem sources -a http://gems.ruby-china.com/   //添加新源头</span><br><span class="line">apt-get install gem   //安装gem</span><br><span class="line">gem install zsteg  //安装zsteg</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/04/6314c51139204.png" alt="QQ截图20220904233218.png"></p>
+<h2 id="6-binwalk-foremost"><a href="#6-binwalk-foremost" class="headerlink" title="(6)binwalk+foremost"></a>(6)binwalk+foremost</h2><p>当文件中包含多个文件的时候我们就用到了binwalk和foremost</p>
+<p>binwalk可以查看文件中隐藏文件并且可以进行提取</p>
+<p>foremost也可以进行提取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">binwalk xxx.png    //查找是否包含文件</span><br><span class="line">binwalk -e xxx.png //提取</span><br><span class="line">foremost XXX.png   //提取</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-IDAT块隐写"><a href="#7-IDAT块隐写" class="headerlink" title="(7)IDAT块隐写"></a>(7)IDAT块隐写</h2><p>IDAT:</p>
+<p>图像数据块IDAT(image data chunk)：它存储实际的数据，在数据流中可包含多个连续顺序的图像数据块(一张图片可以有很多IDAT块)</p>
+<p>IDAT会有固定的长度正常png文件只有最后一个IDAT块的长度会比其他的短</p>
+<p>而IDAT的隐写就出现在这里，中间会有IDAT的长度异常</p>
+<p>这时候我们一般会用到TweakPng工具查看操作IDAT块</p>
+<p><a target="_blank" rel="noopener" href="http://entropymine.com/jason/tweakpng/">TweakPNG (entropymine.com)</a></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/04/6314c9cd536c1.png" alt="QQ截图20220904235239.png"></p>
+<p>删除之后即可出现flag</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/04/6314ca0683599.png" alt="QQ截图20220904235337.png"></p>
+<h2 id="8-MagicEXIF元数据编译器"><a href="#8-MagicEXIF元数据编译器" class="headerlink" title="(8)MagicEXIF元数据编译器"></a>(8)MagicEXIF元数据编译器</h2><p><a target="_blank" rel="noopener" href="https://www.magicexif.com/start">https://www.magicexif.com/start</a></p>
+<p>MagicEXIF是一款可以通过分析照片的元数据以及编码特征来计算图像可信度进行判断照片是否被修改，可以对相机的快门次数，镜头参数，光圈挡位查看和编译</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/05/631611d90b035.png" alt="QQ截图20220905231219.png"></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/05/63161205317d2.png" alt="QQ截图20220905231301.png"></p>
+<h2 id="9-时间戳转换获取"><a href="#9-时间戳转换获取" class="headerlink" title="(9)时间戳转换获取"></a>(9)时间戳转换获取</h2><p><img src="http://wp.xiaohuang.vip/p/9/2022/09/05/63161697d9d5e.png" alt="微信截图_20220905233215.png"></p>
+<p>exiftool可以发现注释中提示了UnixTimestap(Timestap时间戳)，DECtoHEX（十进制转换十六进制）</p>
+<p>所以我们需要转换时间戳</p>
+<p><a target="_blank" rel="noopener" href="https://tool.chinaz.com/tools/unixtime.aspx">Unix时间戳(Unix timestamp)转换工具 - 站长工具 (chinaz.com)</a></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/05/6316177d588a4.png" alt="QQ截图20220905233557.png"></p>
+<p>通过四个时间戳转化获取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">874865822 2699237688 2156662245 460377706</span><br></pre></td></tr></table></figure>
+
+<p>然后转换十六进制结合即可</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/05/6316177d588a4.png" alt="QQ截图20220905233557.png"></p>
+<p>ctfshow{3425649ea0e31938808c0de51b70ce6a}</p>
+<h2 id="10-一个有意思的题"><a href="#10-一个有意思的题" class="headerlink" title="(10)一个有意思的题"></a>(10)一个有意思的题</h2><p>下载获取了一个不支持jpg打开的文件010打开</p>
+<p>看完wp都感觉想不到哈哈哈哈哈</p>
+<p>搜索F001然后用眼看</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/05/63161a9ccd40f.png" alt="QQ截图20220905234939.png"></p>
+
       
     </div>
     <div class="article-footer">
