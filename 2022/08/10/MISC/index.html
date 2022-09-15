@@ -50,8 +50,14 @@
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/07/63177b60cddb9.png">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/07/63177e1b72018.png">
 <meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/07/63177e19495b1.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/14/6321dfe5b4e03.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/14/6321dfe5f30dd.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/14/6321dfe63d1b6.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/14/6321dfe6d83d6.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/14/6321e7c60bf09.png">
+<meta property="og:image" content="http://wp.xiaohuang.vip/p/9/2022/09/14/6321e7c71d870.png">
 <meta property="article:published_time" content="2022-08-10T15:08:55.000Z">
-<meta property="article:modified_time" content="2022-09-06T17:33:53.123Z">
+<meta property="article:modified_time" content="2022-09-14T15:51:19.867Z">
 <meta property="article:author" content="叶子">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
@@ -348,7 +354,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-bpg%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">1.1.</span> <span class="toc-text">(1)bpg文件读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%A4%B4%E8%AF%86%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">(2)文件头识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-LINUX%E7%9A%84DD%E5%91%BD%E4%BB%A4%E8%AF%BB%E5%8F%96"><span class="toc-number">1.3.</span> <span class="toc-text">(3)LINUX的DD命令读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-EXIF%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96"><span class="toc-number">1.4.</span> <span class="toc-text">(4)EXIF文件信息读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-zsteg"><span class="toc-number">1.5.</span> <span class="toc-text">(5)zsteg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-binwalk-foremost"><span class="toc-number">1.6.</span> <span class="toc-text">(6)binwalk+foremost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-IDAT%E5%9D%97%E9%9A%90%E5%86%99"><span class="toc-number">1.7.</span> <span class="toc-text">(7)IDAT块隐写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-MagicEXIF%E5%85%83%E6%95%B0%E6%8D%AE%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">1.8.</span> <span class="toc-text">(8)MagicEXIF元数据编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%97%B6%E9%97%B4%E6%88%B3%E8%BD%AC%E6%8D%A2%E8%8E%B7%E5%8F%96"><span class="toc-number">1.9.</span> <span class="toc-text">(9)时间戳转换获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E4%B8%80%E4%B8%AA%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E9%A2%98"><span class="toc-number">1.10.</span> <span class="toc-text">(10)一个有意思的题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-BMP"><span class="toc-number">1.11.</span> <span class="toc-text">(11)BMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-CRC%E6%8A%A5%E9%94%99%E4%BF%AE%E6%94%B9%E9%AB%98%E5%AE%BD"><span class="toc-number">1.12.</span> <span class="toc-text">(12)CRC报错修改高宽</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-bpg%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">1.1.</span> <span class="toc-text">(1)bpg文件读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%A4%B4%E8%AF%86%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">(2)文件头识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-LINUX%E7%9A%84DD%E5%91%BD%E4%BB%A4%E8%AF%BB%E5%8F%96"><span class="toc-number">1.3.</span> <span class="toc-text">(3)LINUX的DD命令读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-EXIF%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96"><span class="toc-number">1.4.</span> <span class="toc-text">(4)EXIF文件信息读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-zsteg"><span class="toc-number">1.5.</span> <span class="toc-text">(5)zsteg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-binwalk-foremost"><span class="toc-number">1.6.</span> <span class="toc-text">(6)binwalk+foremost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-IDAT%E5%9D%97%E9%9A%90%E5%86%99"><span class="toc-number">1.7.</span> <span class="toc-text">(7)IDAT块隐写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-MagicEXIF%E5%85%83%E6%95%B0%E6%8D%AE%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">1.8.</span> <span class="toc-text">(8)MagicEXIF元数据编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%97%B6%E9%97%B4%E6%88%B3%E8%BD%AC%E6%8D%A2%E8%8E%B7%E5%8F%96"><span class="toc-number">1.9.</span> <span class="toc-text">(9)时间戳转换获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E4%B8%80%E4%B8%AA%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E9%A2%98"><span class="toc-number">1.10.</span> <span class="toc-text">(10)一个有意思的题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-BMP"><span class="toc-number">1.11.</span> <span class="toc-text">(11)BMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-CRC%E6%8A%A5%E9%94%99%E4%BF%AE%E6%94%B9%E9%AB%98%E5%AE%BD"><span class="toc-number">1.12.</span> <span class="toc-text">(12)CRC报错修改高宽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-stegsolve%E6%9F%A5%E7%9C%8B%E5%B8%A7"><span class="toc-number">1.13.</span> <span class="toc-text">(13)stegsolve查看帧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-APNG"><span class="toc-number">1.14.</span> <span class="toc-text">(14)APNG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-PNGDEBUGGER"><span class="toc-number">1.15.</span> <span class="toc-text">(15)PNGDEBUGGER</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -392,10 +398,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/10/MISC/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.3k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
@@ -500,7 +506,27 @@
 <p>然后我们使用脚本跑一下对应宽和高修改即可</p>
 <p><img src="http://wp.xiaohuang.vip/p/9/2022/09/07/63177e1b72018.png" alt="QQ截图20220907010613.png"></p>
 <p><img src="http://wp.xiaohuang.vip/p/9/2022/09/07/63177e19495b1.png" alt="QQ截图20220907010621.png"></p>
+<h2 id="13-stegsolve查看帧"><a href="#13-stegsolve查看帧" class="headerlink" title="(13)stegsolve查看帧"></a>(13)stegsolve查看帧</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">stegsolve适用于ctf隐写的利器</span><br><span class="line"></span><br><span class="line">分为</span><br><span class="line"></span><br><span class="line">File Format:文件格式</span><br><span class="line"></span><br><span class="line">Data Rxtract:数据提取</span><br><span class="line"></span><br><span class="line">Steegram Solve:立体试图</span><br><span class="line"></span><br><span class="line">Frame Browser:帧浏览器</span><br><span class="line"></span><br><span class="line">Image Combiner:图片拼接</span><br></pre></td></tr></table></figure>
 
+
+
+
+
+<p><a target="_blank" rel="noopener" href="http://www.caesum.com/handbook/Stegsolve.jar">http://www.caesum.com/handbook/Stegsolve.jar</a></p>
+<p>gif文件一般为一个动图会存在很多帧我们这时候就可以使用stegsolve查看每一个帧数查看其中隐藏的信息</p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/14/6321dfe5b4e03.png" alt="QQ截图20220914220453.png"></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/14/6321dfe5f30dd.png" alt="QQ截图20220914220520.png"></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/14/6321dfe63d1b6.png" alt="QQ截图20220914220500.png"></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/14/6321dfe6d83d6.png" alt="QQ截图20220914220513.png"></p>
+<p>可以看到在有的帧中藏了内容</p>
+<h2 id="14-APNG"><a href="#14-APNG" class="headerlink" title="(14)APNG"></a>(14)APNG</h2><p>大家都听说过png动图也一般是gif，而这里提到的是apng(动态png)，第一帧为标准的png图像，甚于的动画和帧数数据放在png扩展数据块中（一般用于查看png的软件只会显示第一帧中png图像）</p>
+<p>比如拿浏览器打开的时候我们就会发现它是一个动态的</p>
+<p>这里我们使用</p>
+<p>APNG Disassember即可获取到每一帧的图片</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/apngdis/files/latest/download">Download APNG Disassembler from SourceForge.net</a></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/14/6321e7c60bf09.png" alt="QQ截图20220914223951.png"></p>
+<p><img src="http://wp.xiaohuang.vip/p/9/2022/09/14/6321e7c71d870.png" alt="QQ截图20220914223958.png"></p>
+<h2 id="15-PNGDEBUGGER"><a href="#15-PNGDEBUGGER" class="headerlink" title="(15)PNGDEBUGGER"></a>(15)PNGDEBUGGER</h2>
       
     </div>
     <div class="article-footer">
